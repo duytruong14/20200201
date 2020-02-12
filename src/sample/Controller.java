@@ -107,14 +107,28 @@ public class Controller implements Initializable
         EmpSelected.forEach(allEmp::remove);
         //NOTE: line 102-107 was based on a youtube video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
        //I rewrote in a a way that can make it easier for me to understand it
-       //Clear the checkbox after delete a row
+       //Clear the text field after delete a row
        firstNameTextField.clear();
        lastNameTextField.clear();
        isActiveCheckBox.setSelected(false); // checkbox
 
     }
     //add butoon function
-    public void addInput(){
+    public void addInput() {
+        Employee emp = new Employee();
+        emp.firstName=(firstNameTextField.getText());
+        emp.lastName=(lastNameTextField.getText());
+        emp.isActive=true;
+        employeeListView.getItems().add(emp);
+        //Clear the text field after delete a row
+        firstNameTextField.clear();
+        lastNameTextField.clear();
+        isActiveCheckBox.setSelected(false); // checkbox
+
+
+
+
+
 
     }
 }

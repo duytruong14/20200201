@@ -28,7 +28,7 @@
         <HBox>
             <Button fx:id="add">Add</Button>
             <Button fx:id="clear">Clear</Button>
-            <Button fx:id="delete">Delete</Button>
+            <Button fx:id="delete">Delete Selected</Button>
         </HBox>
     </VBox>
 
