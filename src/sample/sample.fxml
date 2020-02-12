@@ -28,6 +28,11 @@
             <Label text="Misc." prefWidth="100" />
             <TextField prefWidth="150"/>
         </HBox>
+        <HBox>
+            <Button fx:id="add">Add</Button>
+            <Button fx:id="clear">Clear</Button>
+            <Button fx:id="delete">Delete</Button>
+        </HBox>
     </VBox>
 
 </HBox>

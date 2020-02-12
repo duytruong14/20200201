@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -23,6 +24,12 @@ public class Controller implements Initializable
     private TextField lastNameTextField;
     @FXML
     private CheckBox isActiveCheckBox;
+    @FXML
+    private Button clear;
+    @FXML
+    private Button add;
+    @FXML
+    private Button delete;
 
 
 
@@ -38,6 +45,7 @@ public class Controller implements Initializable
                     firstNameTextField.setText(((Employee)selectedItem).firstName);
                     lastNameTextField.setText(((Employee)selectedItem).lastName);
                     isActiveCheckBox.setSelected(((Employee)selectedItem).isActive);
+
                 }
         );
 
@@ -64,14 +72,21 @@ public class Controller implements Initializable
 
         Staff staff1 = new Staff();
         staff1.firstName = "StaffPerson";
-        staff1.lastName = "GoodWorker";
+        staff1.lastName = " GoodWorker";
 
         Faculty faculty1 = new Faculty();
         faculty1.firstName = "FacultyPerson";
-        faculty1.lastName = "TerribleWorker";
+        faculty1.lastName = " TerribleWorker";
 
         items.add(staff1);
         items.add(faculty1);
+        clear.setOnAction(e -> clearSelection());
+
+    }
+   public void clearSelection(){
+        firstNameTextField.clear();
+        lastNameTextField.clear();
+        
 
     }
 }
