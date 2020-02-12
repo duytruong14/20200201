@@ -80,13 +80,41 @@ public class Controller implements Initializable
 
         items.add(staff1);
         items.add(faculty1);
-        clear.setOnAction(e -> clearSelection());
+        //clear button
+        clear.setOnAction(a -> clearSelection());
+        //delete button
+        delete.setOnAction(b -> deleteSelection());
+        //add button
+        add.setOnAction(c ->addInput());
 
     }
+    //clear button function
    public void clearSelection(){
         firstNameTextField.clear();
         lastNameTextField.clear();
-        
+        isActiveCheckBox.setSelected(false); // checkbox
+        // this will clear both text field and the check box whenever i click the clear button
+
+
+    }
+    //delete button function
+   public void deleteSelection(){
+        ObservableList<Employee> allEmp;
+        allEmp = employeeListView.getItems();
+       ObservableList<Employee> EmpSelected;
+        EmpSelected = employeeListView.getSelectionModel().getSelectedItems();
+        //EmpSelected.removeAll();
+        EmpSelected.forEach(allEmp::remove);
+        //NOTE: line 102-107 was based on a youtube video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
+       //I rewrote in a a way that can make it easier for me to understand it
+       //Clear the checkbox after delete a row
+       firstNameTextField.clear();
+       lastNameTextField.clear();
+       isActiveCheckBox.setSelected(false); // checkbox
+
+    }
+    //add butoon function
+    public void addInput(){
 
     }
 }

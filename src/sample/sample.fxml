@@ -24,10 +24,7 @@
             <Label text="Is Active" prefWidth="100" />
             <CheckBox fx:id="isActiveCheckBox"/>
         </HBox>
-        <HBox>
-            <Label text="Misc." prefWidth="100" />
-            <TextField prefWidth="150"/>
-        </HBox>
+
         <HBox>
             <Button fx:id="add">Add</Button>
             <Button fx:id="clear">Clear</Button>
