@@ -103,9 +103,8 @@ public class Controller implements Initializable
         allEmp = employeeListView.getItems();
        ObservableList<Employee> EmpSelected;
         EmpSelected = employeeListView.getSelectionModel().getSelectedItems();
-        //EmpSelected.removeAll();
         EmpSelected.forEach(allEmp::remove);
-        //NOTE: line 102-107 was based on a youtube video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
+        //NOTE: line 102-106 was based on a youtube tutorial video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
        //I rewrote in a a way that can make it easier for me to understand it
        //Clear the text field after delete a row
        firstNameTextField.clear();
@@ -118,9 +117,18 @@ public class Controller implements Initializable
         Employee emp = new Employee();
         emp.firstName=(firstNameTextField.getText());
         emp.lastName=(lastNameTextField.getText());
-        emp.isActive=true;
+        //emp.isActive=true;
+        boolean check =isActiveCheckBox.isSelected();
+        //this will check the status of teh check box
+        if(check==true){
+            emp.isActive=true;
+        }
+        else{emp.isActive=false;}
+
+
+        //Finally, add all input into the rows
         employeeListView.getItems().add(emp);
-        //Clear the text field after delete a row
+        //Clear the text field after add a row
         firstNameTextField.clear();
         lastNameTextField.clear();
         isActiveCheckBox.setSelected(false); // checkbox
