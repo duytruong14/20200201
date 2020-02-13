@@ -104,8 +104,9 @@ public class Controller implements Initializable
        ObservableList<Employee> EmpSelected;
         EmpSelected = employeeListView.getSelectionModel().getSelectedItems();
         EmpSelected.forEach(allEmp::remove);
-        //NOTE: line 102-106 was based on a youtube tutorial video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
-       //I rewrote in a a way that can make it easier for me to understand it
+        /*NOTE: line 102-106 was based on a youtube tutorial video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
+       I rewrote and modify it in a a way that will fit the current program and make it easier for me to understand it*/
+
        //Clear the text field after delete a row
        firstNameTextField.clear();
        lastNameTextField.clear();
