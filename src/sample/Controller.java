@@ -133,7 +133,7 @@ public class Controller implements Initializable
         firstNameTextField.clear();
         lastNameTextField.clear();
         isActiveCheckBox.setSelected(false); // checkbox
-//final check
+//final check 1
 
 
 
