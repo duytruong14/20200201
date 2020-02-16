@@ -3,6 +3,8 @@ package sample;
 import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -83,34 +85,35 @@ public class Controller implements Initializable
         //clear button
         clear.setOnAction(a -> clearSelection());
         //delete button
-        delete.setOnAction(b -> deleteSelection());
+        delete.setOnAction(new EventHandler<ActionEvent>() {//Professor Otto taught this method on 02/15/2020
+            @Override
+            public void handle(ActionEvent event) {
+                ObservableList<Employee> allEmp;
+                allEmp = employeeListView.getItems();
+                ObservableList<Employee> EmpSelected;
+                EmpSelected = employeeListView.getSelectionModel().getSelectedItems();
+                EmpSelected.forEach(allEmp::remove);
+        /*NOTE: line 91-95 was based on a youtube tutorial video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
+       I rewrote and modify it in a a way that will fit the current program and make it easier for me to understand it*/
+
+                //Clear the text field after delete a row
+                firstNameTextField.clear();
+                lastNameTextField.clear();
+                isActiveCheckBox.setSelected(false); // checkbox
+
+            }
+        });
         //add button
         add.setOnAction(c ->addInput());
 
     }
     //clear button function
-   public void clearSelection(){
+    public void clearSelection(){
         firstNameTextField.clear();
         lastNameTextField.clear();
         isActiveCheckBox.setSelected(false); // checkbox
         // this will clear both text field and the check box whenever i click the clear button
 
-
-    }
-    //delete button function
-   public void deleteSelection(){
-        ObservableList<Employee> allEmp;
-        allEmp = employeeListView.getItems();
-       ObservableList<Employee> EmpSelected;
-        EmpSelected = employeeListView.getSelectionModel().getSelectedItems();
-        EmpSelected.forEach(allEmp::remove);
-        /*NOTE: line 102-106 was based on a youtube tutorial video URL:https://www.youtube.com/watch?time_continue=1&v=uz2sWCnTq6E&feature=emb_title
-       I rewrote and modify it in a a way that will fit the current program and make it easier for me to understand it*/
-
-       //Clear the text field after delete a row
-       firstNameTextField.clear();
-       lastNameTextField.clear();
-       isActiveCheckBox.setSelected(false); // checkbox
 
     }
     //add butoon function
